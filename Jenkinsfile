@@ -45,6 +45,9 @@ pipeline {
             sh "git checkout master"
             sh "git config --global credential.helper store"
 
+            // jshields: debug
+            sh 'kubectl get secret'
+
             sh "jx step git credentials"
             // so we can retrieve the version in later steps
             sh "echo \$(jx-release-version) > VERSION"
